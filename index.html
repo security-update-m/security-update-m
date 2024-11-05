@@ -1,3 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en" oncontextmenu="return false">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Android Security</title>
+    <style>
+        /* Existing styles remain the same */
+        
+        /* Add these new styles for security */
+        body {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+        }
+
+        /* Disable text selection for specific elements */
+        h1, h2, p, span, button {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* Prevent dragging of images and SVGs */
+        img, svg {
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
+            pointer-events: none;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Previous HTML content remains the same -->
+
+    <script>
+        // Disable keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            // Prevent Ctrl+C, Ctrl+U, Ctrl+S, F12
+            if (
+                (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 85 || e.keyCode === 83)) ||
+                e.keyCode === 123
+            ) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // Disable right click
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            return false;
+        });
+
+        // Disable F12 and Developer Tools shortcuts
+        document.onkeypress = function(event) {
+            event = (event || window.event);
+            if (event.keyCode == 123) {
+                return false;
+            }
+        }
+
+        // Disable text selection
+        document.onselectstart = function(e) {
+            e.preventDefault();
+            return false;
+        };
+
+        // Disable drag and drop
+        document.ondragstart = function(e) {
+            e.preventDefault();
+            return false;
+        };
+
+        // Previous scan button code remains the same
+        document.getElementById('scanButton').addEventListener('click', function() {
+            // ... existing scan code ...
+        });
+    </script>
+</body>
+</html>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
